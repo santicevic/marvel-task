@@ -1,17 +1,19 @@
 import './App.css';
 import dotenv from 'dotenv';
 import React, { useState, useEffect } from 'react';
-import { getCharactersByName } from './api/index'
+import { connect } from 'react-redux';
+// import { getCharactersByName } from './api/index';
 
 dotenv.config();
 
-function App() {
+function App({ characters }) {
   const [nameSubstring, setNameSubstring] = useState('');
-  const [characters, setCharacters] = useState([]);
+
   useEffect(() => { 
-    nameSubstring && getCharactersByName(nameSubstring)
-      .then(({ results }) => setCharacters(results))
-  }, [nameSubstring])
+    console.log(characters)
+    // nameSubstring && getCharactersByName(nameSubstring)
+    //   .then(({ results }) => setCharacters(results))
+  }, [characters, nameSubstring]);
 
   return (
     <div className="App">
@@ -28,4 +30,13 @@ function App() {
   );
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    characters: state.characters
+  }
+};
+
+export default connect(
+  mapStateToProps,
+  null
+)(App);
