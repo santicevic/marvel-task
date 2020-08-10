@@ -2,11 +2,11 @@ import { createStore, combineReducers } from 'redux';
 import characterReducer from './modules/characters';
 
 const rootReducer = combineReducers({
-    characters: characterReducer
+  characters: characterReducer
 });
 
 const store = createStore(
-    rootReducer
+  rootReducer
 );
 
 export default store;
