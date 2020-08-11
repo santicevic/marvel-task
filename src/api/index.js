@@ -11,6 +11,7 @@ export function getCharactersByName(nameSubstring) {
   return axios.get(`${base}/characters`, {
     params: {
       apikey: apiKey,
+      limit: 10,
       hash: md5(ts + privateKey + apiKey),
       ts,
       nameStartsWith: nameSubstring && nameSubstring,

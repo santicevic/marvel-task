@@ -5,7 +5,7 @@ import { FETCH_CHARACTERS } from "./modules/characters/constants";
 import { fetchCharactersFulfilled } from "./modules/characters/actions";
 import { getCharactersByName } from "../api";
 
-const DEBOUNCE_INTERVAL = 1000;
+const DEBOUNCE_INTERVAL = 300;
 
 const fetchCharactersEpic = (action$) =>
   action$.pipe(

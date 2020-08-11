@@ -20,7 +20,6 @@
 .catalog-character-list {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(5, 1fr);
   grid-gap: 10px;
   text-align: center;
 }
@@ -78,7 +77,6 @@
 @media only screen and (max-width: 768px) {
   .catalog-character-list {
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(10, 1fr);
   }
 }
 
@@ -86,7 +84,6 @@
   .catalog-character-list {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
-    grid-template-rows: repeat(20, 1fr);
     grid-gap: 10px;
   }
 }

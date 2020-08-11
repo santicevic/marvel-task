@@ -16,7 +16,7 @@ const Catalog = () => {
 
   return (
     <div className="catalog-container">
-      <CharacterSearch setNameSubstring={setNameSubstring} />
+      <CharacterSearch nameSubstring={nameSubstring} setNameSubstring={setNameSubstring} />
       {nameSubstring ? <CharacterList /> : <BookmarkedCharacters />}
     </div>
   );
