@@ -1,9 +1,9 @@
-import { SET_CHARACTERS }  from './constants';
+import { FETCH_CHARACTERS_FULFILLED }  from './constants';
 
-const reducer = (state = [], action) => {
-  switch (action.type) {
-    case SET_CHARACTERS:
-      return action.payload;
+const reducer = (state = {}, { type, payload }) => {
+  switch (type) {
+    case FETCH_CHARACTERS_FULFILLED:
+      return payload.data.data;
     default:
       return state;
   }
