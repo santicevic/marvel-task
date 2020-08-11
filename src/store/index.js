@@ -1,4 +1,5 @@
 import { applyMiddleware, createStore, combineReducers } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
 import characterReducer from './modules/characters';
 import { createEpicMiddleware } from 'redux-observable';
 import rootEpic from './epics';
@@ -11,7 +12,9 @@ const epicMiddleware = createEpicMiddleware();
 
 const store = createStore(
   rootReducer,
-  applyMiddleware(epicMiddleware)
+  composeWithDevTools(
+    applyMiddleware(epicMiddleware)
+  )
 );
 
 epicMiddleware.run(rootEpic);
