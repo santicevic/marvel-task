@@ -1,8 +1,6 @@
-import './App.css';
 import Catalog  from './views/Catalog';
-import React from 'react';
 import dotenv from 'dotenv';
-
+import React from 'react';
 
 dotenv.config();
 
