@@ -1,21 +1,37 @@
-import React from 'react';
+import React from "react";
+import { useDispatch } from "react-redux";
+import {
+  bookmarkCharacter,
+  unbookmarkCharacter,
+} from "../store/modules/bookmarks/actions";
 
-const Character = ({ character }) => {
+const Character = ({ character, isBookmarked }) => {
+  const dispatch = useDispatch();
   const toggleBookmark = () => {
-    console.log('toggle' + character.name)
+    dispatch(
+      isBookmarked
+        ? unbookmarkCharacter(character)
+        : bookmarkCharacter(character)
+    );
   };
 
-  return (   
+  return (
     <div className="catalog-character-list-item">
       <span
-        className="catalog-character-bookmark"
-        onClick={ toggleBookmark }>
-          Bookmark
+        className={
+          isBookmarked
+            ? "catalog-character-bookmark-active"
+            : "catalog-character-bookmark"
+        }
+        onClick={toggleBookmark}
+      >
+        Bookmark
       </span>
-      <img 
+      <img
         src={`${character.thumbnail.path}.${character.thumbnail.extension}`}
-        alt="character"/>
-      <h3>{ character.name }</h3>
+        alt="character"
+      />
+      <h3>{character.name}</h3>
     </div>
   );
 };

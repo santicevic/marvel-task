@@ -1,4 +1,4 @@
-import { FETCH_CHARACTERS_FULFILLED }  from './constants';
+import { FETCH_CHARACTERS_FULFILLED } from "./constants";
 
 const reducer = (state = {}, { type, payload }) => {
   switch (type) {
@@ -8,5 +8,5 @@ const reducer = (state = {}, { type, payload }) => {
       return state;
   }
 };
-  
+
 export default reducer;
