@@ -1,6 +1,7 @@
+import "./styles.css";
 import React, { Fragment } from "react";
-import Character from "../components/Character";
-import Pagination from "../components/Pagination";
+import Character from "../../components/Character";
+import Pagination from "../../components/Pagination";
 import { useSelector } from "react-redux";
 
 const CharacterList = () => {

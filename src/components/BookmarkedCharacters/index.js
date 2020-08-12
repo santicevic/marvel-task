@@ -1,5 +1,6 @@
+import "./styles.css";
 import React from "react";
-import Character from "../components/Character";
+import Character from "../../components/Character";
 import { useSelector } from "react-redux";
 
 const CharacterList = () => {

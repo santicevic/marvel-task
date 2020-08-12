@@ -1,0 +1,13 @@
+.catalog-no-bookmarks {
+  background: white;
+  color: gray;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 3px;
+  box-shadow: 2px 6px 9px 0px grey;
+}
+
+.catalog-no-bookmarks-container {
+  display: flex;
+  justify-content: center;
+}

@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
-const Pagination = ({ nameSubstring }) => {
+const Pagination = () => {
   const totalPages = useSelector(state =>
     Math.ceil(state.characters.total / state.characters.limit)
   );
