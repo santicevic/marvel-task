@@ -1,13 +1,13 @@
-import { applyMiddleware, createStore, combineReducers } from "redux";
-import { composeWithDevTools } from "redux-devtools-extension";
 import charactersReducer from "./modules/characters";
 import bookmarksReducer from "./modules/bookmarks";
-import { createEpicMiddleware } from "redux-observable";
 import rootEpic from "./epics";
+import { applyMiddleware, createStore, combineReducers } from "redux";
+import { composeWithDevTools } from "redux-devtools-extension";
+import { createEpicMiddleware } from "redux-observable";
 
 const rootReducer = combineReducers({
   characters: charactersReducer,
-  bookmarks: bookmarksReducer,
+  bookmarks: bookmarksReducer
 });
 
 const epicMiddleware = createEpicMiddleware();

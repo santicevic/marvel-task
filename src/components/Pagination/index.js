@@ -5,10 +5,8 @@ import { fetchCharacters } from "../../store/modules/characters/actions";
 
 const Pagination = () => {
   const dispatch = useDispatch();
-  const { nameSubstring, offset, limit } = useSelector(state => state.characters);
-  const totalPages = useSelector(({ characters }) =>
-    Math.ceil(characters.total / characters.limit)
-  );
+  const { nameSubstring, offset, limit, total } = useSelector(state => state.characters);
+  const totalPages = Math.ceil(total / limit);
 
   const handleClick = nextPage => {
     nameSubstring && dispatch(fetchCharacters({
@@ -21,14 +19,12 @@ const Pagination = () => {
     <div className="pagination-wrapper">
       <div className="pagination-container">
         {!isNaN(totalPages) &&
-          [...Array(totalPages)].map((a, i) => (
+          [...Array(totalPages)].map((_, i) => (
             <span
               key={i}
-              className={offset/limit === i ? "pagination-active" : null}
               onClick={() => handleClick(i)}
-            >
-              {i + 1}
-            </span>
+              className={offset/limit === i ? "pagination-active" : null}
+            >{i + 1}</span>
           ))}
       </div>
     </div>

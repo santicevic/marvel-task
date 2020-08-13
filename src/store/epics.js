@@ -7,7 +7,7 @@ import { getCharactersByName } from "../api";
 
 const DEBOUNCE_INTERVAL = 300;
 
-const fetchCharactersEpic = (action$) =>
+const fetchCharactersEpic = action$ =>
   action$.pipe(
     ofType(FETCH_CHARACTERS),
     debounce(() => interval(DEBOUNCE_INTERVAL)),

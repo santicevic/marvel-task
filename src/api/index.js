@@ -14,7 +14,7 @@ export function getCharactersByName(params) {
       limit: 20,
       hash: md5(ts + privateKey + apiKey),
       ts,
-      ...params,
-    },
+      ...params
+    }
   });
 }

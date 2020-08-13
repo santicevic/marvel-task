@@ -22,9 +22,7 @@ const CharacterList = () => {
           <Character
             key={character.id}
             character={character}
-            isBookmarked={bookmarks.some(
-              bookmark => bookmark.id === character.id
-            )}
+            isBookmarked={bookmarks.some(bookmark => bookmark.id === character.id)}
           />
         ))}
       </div>

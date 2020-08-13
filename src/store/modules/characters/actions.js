@@ -1,8 +1,4 @@
-import {
-  FETCH_CHARACTERS,
-  FETCH_CHARACTERS_FULFILLED,
-  SET_NAME_SUBSTRING,
-} from "./constants";
+import { FETCH_CHARACTERS, FETCH_CHARACTERS_FULFILLED, SET_NAME_SUBSTRING } from "./constants";
 
 export const fetchCharacters = params => ({
   type: FETCH_CHARACTERS,

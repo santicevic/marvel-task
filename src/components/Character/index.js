@@ -5,22 +5,15 @@ import { bookmarkCharacter, unbookmarkCharacter } from "../../store/modules/book
 
 const Character = ({ character, isBookmarked }) => {
   const dispatch = useDispatch();
-  const toggleBookmark = () => {
-    dispatch(
-      isBookmarked ? unbookmarkCharacter(character) : bookmarkCharacter(character)
-    );
-  };
+  const toggleBookmark = () => 
+    dispatch(isBookmarked ? unbookmarkCharacter(character) : bookmarkCharacter(character));
 
   return (
     <div className="catalog-character-list-item">
       <span
-        className={
-          isBookmarked ? "catalog-character-bookmark-active" : "catalog-character-bookmark"
-        }
+        className={ `catalog-character-bookmark${isBookmarked ? "-active" : ""}` }
         onClick={toggleBookmark}
-      >
-        Bookmark
-      </span>
+      >Bookmark</span>
       <img
         src={`${character.thumbnail.path}.${character.thumbnail.extension}`
         .replace("http", "https")}

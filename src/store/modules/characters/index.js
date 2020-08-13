@@ -1,8 +1,4 @@
-import {
-  FETCH_CHARACTERS,
-  FETCH_CHARACTERS_FULFILLED,
-  SET_NAME_SUBSTRING,
-} from "./constants";
+import { FETCH_CHARACTERS, FETCH_CHARACTERS_FULFILLED, SET_NAME_SUBSTRING } from "./constants";
 
 const initialState = { loading: false, nameSubstring: "" };
 
@@ -16,7 +12,7 @@ const reducer = (state = initialState, { type, payload }) => {
       return { ...state, nameSubstring: payload };
     default:
       return state;
-  }
+  };
 };
 
 export default reducer;
