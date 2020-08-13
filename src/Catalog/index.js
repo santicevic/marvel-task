@@ -1,22 +1,22 @@
 import "./styles.css";
 import CharacterList from "../components/CharacterList";
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import BookmarkedCharacters from "../components/BookmarkedCharacters";
 import CharacterSearch from "../components/CharacterSearch";
 import { fetchCharacters } from "../store/modules/characters/actions";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 const Catalog = () => {
   const dispatch = useDispatch();
-  const [nameSubstring, setNameSubstring] = useState("");
+  const nameSubstring = useSelector(({ characters }) => characters.nameSubstring);
 
   useEffect(() => {
-    nameSubstring && dispatch(fetchCharacters(nameSubstring));
+    nameSubstring && dispatch(fetchCharacters({ nameStartsWith: nameSubstring }));
   }, [dispatch, nameSubstring]);
 
   return (
     <div className="catalog-container">
-      <CharacterSearch nameSubstring={nameSubstring} setNameSubstring={setNameSubstring} />
+      <CharacterSearch />
       {nameSubstring ? <CharacterList /> : <BookmarkedCharacters />}
     </div>
   );

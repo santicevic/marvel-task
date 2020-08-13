@@ -1,0 +1,14 @@
+.catalog-search-bar {
+  width: 100%;
+  border-radius: 3px;
+  padding: 10px;
+  margin-bottom: 30px;
+  text-align: center;
+  outline: none;
+  text-transform: uppercase;
+  background-color: white;
+  color: red;
+  font-weight: bold;
+  font-size: 16px;
+  box-shadow: 2px 6px 9px 0px gray;
+}

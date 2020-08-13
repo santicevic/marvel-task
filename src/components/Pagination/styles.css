@@ -1,0 +1,22 @@
+.pagination-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+
+.pagination-container > span {
+  padding: 5px 10px;
+  display: inline-block;
+  background: white;
+  color: red;
+}
+
+.pagination-container > span:hover {
+  background: gray;
+  cursor: pointer;
+}
+
+.pagination-active {
+  background: red !important;
+  color:  white !important;
+}

@@ -1,9 +1,7 @@
+import "./styles.css";
 import React from "react";
 import { useDispatch } from "react-redux";
-import {
-  bookmarkCharacter,
-  unbookmarkCharacter,
-} from "../store/modules/bookmarks/actions";
+import { bookmarkCharacter, unbookmarkCharacter } from "../../store/modules/bookmarks/actions";
 
 const Character = ({ character, isBookmarked }) => {
   const dispatch = useDispatch();
