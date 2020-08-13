@@ -5,7 +5,8 @@
 https://dreamy-hodgkin-599841.netlify.app/
 
 ### Setup
-In the root directory run:
+Clone the repo
+In the project root directory run:
 ```
 cp .env.example .env
 ```
