@@ -7,9 +7,7 @@ const Character = ({ character, isBookmarked }) => {
   const dispatch = useDispatch();
   const toggleBookmark = () => {
     dispatch(
-      isBookmarked
-        ? unbookmarkCharacter(character)
-        : bookmarkCharacter(character)
+      isBookmarked ? unbookmarkCharacter(character) : bookmarkCharacter(character)
     );
   };
 
@@ -17,16 +15,15 @@ const Character = ({ character, isBookmarked }) => {
     <div className="catalog-character-list-item">
       <span
         className={
-          isBookmarked
-            ? "catalog-character-bookmark-active"
-            : "catalog-character-bookmark"
+          isBookmarked ? "catalog-character-bookmark-active" : "catalog-character-bookmark"
         }
         onClick={toggleBookmark}
       >
         Bookmark
       </span>
       <img
-        src={`${character.thumbnail.path}.${character.thumbnail.extension}`}
+        src={`${character.thumbnail.path}.${character.thumbnail.extension}`
+        .replace("http", "https")}
         alt="character"
       />
       <h3>{character.name}</h3>
