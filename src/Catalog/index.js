@@ -8,10 +8,10 @@ import { useSelector, useDispatch } from "react-redux";
 
 const Catalog = () => {
   const dispatch = useDispatch();
-  const nameSubstring = useSelector(state => state.characters.nameSubstring);
+  const nameSubstring = useSelector(({ characters }) => characters.nameSubstring);
 
   useEffect(() => {
-    nameSubstring && dispatch(fetchCharacters(nameSubstring));
+    nameSubstring && dispatch(fetchCharacters({ nameStartsWith: nameSubstring }));
   }, [dispatch, nameSubstring]);
 
   return (

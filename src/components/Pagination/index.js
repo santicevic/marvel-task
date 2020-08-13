@@ -1,12 +1,22 @@
 import "./styles.css";
-import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchCharacters } from "../../store/modules/characters/actions";
 
 const Pagination = () => {
-  const [currentPage, setCurrentPage] = useState(0);
-  const totalPages = useSelector(state =>
-    Math.ceil(state.characters.total / state.characters.limit)
+  const dispatch = useDispatch();
+  const { nameSubstring, offset, limit } = useSelector(state => state.characters);
+  const totalPages = useSelector(({ characters }) =>
+    Math.ceil(characters.total / characters.limit)
   );
+
+  const handleClick = nextPage => {
+    nameSubstring && dispatch(fetchCharacters({
+      nameStartsWith: nameSubstring,
+      offset: nextPage*limit,
+    }));
+  };
+  
   return (
     <div className="pagination-wrapper">
       <div className="pagination-container">
@@ -14,8 +24,8 @@ const Pagination = () => {
           [...Array(totalPages)].map((a, i) => (
             <span
               key={i}
-              className={currentPage === i ? "pagination-active" : null}
-              onClick={() => setCurrentPage(i)}
+              className={offset/limit === i ? "pagination-active" : null}
+              onClick={() => handleClick(i)}
             >
               {i + 1}
             </span>

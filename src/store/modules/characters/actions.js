@@ -4,9 +4,9 @@ import {
   SET_NAME_SUBSTRING,
 } from "./constants";
 
-export const fetchCharacters = nameSubstring => ({
+export const fetchCharacters = params => ({
   type: FETCH_CHARACTERS,
-  payload: nameSubstring,
+  payload: params,
 });
 
 export const fetchCharactersFulfilled = data => ({

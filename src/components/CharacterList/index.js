@@ -5,10 +5,10 @@ import Pagination from "../../components/Pagination";
 import { useSelector } from "react-redux";
 
 const CharacterList = () => {
-  const characters = useSelector(state => state.characters);
+  const { loading, results } = useSelector(state => state.characters);
   const bookmarks = useSelector(state => state.bookmarks);
 
-  if (characters.loading)
+  if (loading)
     return (
       <div className="catalog-loader-container">
         <div className="catalog-loader" />
@@ -18,16 +18,15 @@ const CharacterList = () => {
   return (
     <Fragment>
       <div className="catalog-character-list">
-        {characters.results &&
-          characters.results.map(character => (
-            <Character
-              key={character.id}
-              character={character}
-              isBookmarked={bookmarks.some(
-                bookmark => bookmark.id === character.id
-              )}
-            />
-          ))}
+        {results && results.map(character => (
+          <Character
+            key={character.id}
+            character={character}
+            isBookmarked={bookmarks.some(
+              bookmark => bookmark.id === character.id
+            )}
+          />
+        ))}
       </div>
       <Pagination />
     </Fragment>

@@ -5,7 +5,7 @@ import { setNameSubstring } from "../../store/modules/characters/actions";
 
 const CharacterSearch = () => {
   const dispatch = useDispatch();
-  const nameSubstring = useSelector(state => state.characters.nameSubstring);
+  const nameSubstring = useSelector(({ characters }) => characters.nameSubstring);
   return (
     <input
       value={nameSubstring}
