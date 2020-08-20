@@ -3,7 +3,7 @@ import { interval, from } from "rxjs";
 import { debounce, map, switchMap } from "rxjs/operators";
 import { FETCH_CHARACTERS } from "./modules/characters/constants";
 import { fetchCharactersFulfilled } from "./modules/characters/actions";
-import { getCharactersByName } from "../api";
+import { getCharacters } from "../api";
 import { BOOKMARK_CHARACTER, UNBOOKMARK_CHARACTER } from "./modules/bookmarks/constants";
 import { setBookmarks } from "./modules/bookmarks/actions";
 
@@ -13,9 +13,8 @@ const fetchCharactersEpic = action$ =>
   action$.pipe(
     ofType(FETCH_CHARACTERS),
     debounce(() => interval(DEBOUNCE_INTERVAL)),
-    switchMap(({ payload }) =>
-      from(getCharactersByName(payload)).pipe(map(fetchCharactersFulfilled))
-    )
+    switchMap(({ payload }) => from(getCharacters(payload))),
+    map(fetchCharactersFulfilled)
   );
 
 const bookmarkCharacterEpic = (action$, state$) =>
@@ -33,7 +32,7 @@ const unbookmarkCharacterEpic = (action$, state$) =>
     ofType(UNBOOKMARK_CHARACTER),
     map(({ payload }) => {
       const bookmarks = state$.value.bookmarks.filter(
-        (item) => item.id !== payload.id
+        ({ id }) => id !== payload.id
       );
       localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
       return setBookmarks(bookmarks);

@@ -7,7 +7,7 @@ const apiKey = process.env.REACT_APP_MARVEL_PUBLIC_KEY;
 const privateKey = process.env.REACT_APP_MARVEL_PRIVATE_KEY;
 const ts = new Date().getTime();
 
-export function getCharactersByName(params) {
+export function getCharacters(params) {
   return axios.get(`${base}/characters`, {
     params: {
       apikey: apiKey,
